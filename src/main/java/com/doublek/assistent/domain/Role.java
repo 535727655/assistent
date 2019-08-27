@@ -3,6 +3,7 @@ package com.doublek.assistent.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * 角色
@@ -33,5 +34,9 @@ public class Role {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "base_attribute_id")
     private BaseAttribute baseAttribute;
+
+    /**种族*/
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    private List<Race> race;
 
 }
